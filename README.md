@@ -1,85 +1,34 @@
+[![License](https://img.shields.io/github/license/toolarium/toolarium-sanitize-content)](https://github.com/toolarium/toolarium-sanitize-content/blob/master/LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.toolarium/toolarium-sanitize-content/0.9.7)](https://search.maven.org/artifact/com.github.toolarium/toolarium-sanitize-content/0.9.7/jar)
+[![javadoc](https://javadoc.io/badge2/com.github.toolarium/toolarium-sanitize-content/javadoc.svg)](https://javadoc.io/doc/com.github.toolarium/toolarium-sanitize-content)
+
 # toolarium-sanitize-content
 
-Implements a sanitize content java library.
+Defines the toolarium enumeration configuration.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This project implements a so-called enumeration configuration that turns a Java enumeration into a set of a configuration that can be persisted.
 
-### Prerequisites
+The basic idea behind this is to solve the chicken-and-egg problem: Your software defines or expect some configuration values that are e.g.
+in a database. Now, in your code, you typically define a constant with which you retrieve the value. In the database you have to add the same
+constant with the corresponding value. From various experiences, there are often a lot of problems with.
 
-What things you need to install the software and how to install them
+Here comes a possible solution with this project:
+1) You simply define an enum in Java.
+2) Then add the EnumConfiguration or the EnunmValueConfigutation. Use the annotation attributes for more information.
+3) Use the EnumConfigurationProcessor to generate the output you use, e.g. SQL queries
 
-```
-Give examples
-```
+The big advantage is that you only have one place (source code) where you define your "constant".
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+Add the annoation processor to you project or simple use the common build.
 
 ## Built With
 
 * [cb](https://github.com/toolarium/common-build) - The toolarium common build
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License: https://mit-license.org - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/toolarium/toolarium-sanitize-content/tags). 

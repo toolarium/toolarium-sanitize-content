@@ -14,8 +14,7 @@ dependencies {
     // see https://docs.gradle.org/current/userguide/java_library_plugin.html
 
     // utilities
-    //implementation "net.sf.jptools:jptools:1.7.7"
-    //implementation "net.sf.jptools:jptools:1.7.7:slf4j-redirect"
+    implementation 'org.apache.pdfbox:pdfbox:2.0.24'
 
     // logging
     implementation 'org.slf4j:slf4j-api:1.7.30'
