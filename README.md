@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/toolarium/toolarium-sanitize-content)](https://github.com/toolarium/toolarium-sanitize-content/blob/master/LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.toolarium/toolarium-sanitize-content/0.6.0)](https://search.maven.org/artifact/com.github.toolarium/toolarium-sanitize-content/0.6.0/jar)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.toolarium/toolarium-sanitize-content/0.6.1)](https://search.maven.org/artifact/com.github.toolarium/toolarium-sanitize-content/0.6.1/jar)
 [![javadoc](https://javadoc.io/badge2/com.github.toolarium/toolarium-sanitize-content/javadoc.svg)](https://javadoc.io/doc/com.github.toolarium/toolarium-sanitize-content)
 
 # toolarium-sanitize-content
