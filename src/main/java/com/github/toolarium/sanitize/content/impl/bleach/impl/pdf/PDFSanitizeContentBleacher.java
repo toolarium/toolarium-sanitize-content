@@ -30,6 +30,10 @@ import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// remove meta data:
+// https://svn.apache.org/viewvc/pdfbox/trunk/examples/src/main/java/org/apache/pdfbox/examples/pdmodel/ExtractMetadata.java?view=markup
+// https://svn.apache.org/viewvc/pdfbox/trunk/examples/src/main/java/org/apache/pdfbox/examples/pdmodel/PrintDocumentMetaData.java?revision=1873147&view=markup
+// https://svn.apache.org/viewvc/pdfbox/trunk/examples/src/main/java/org/apache/pdfbox/examples/util/PDFMergerExample.java?view=markup
 
 /**
  * PDF content bleacher
@@ -112,7 +116,7 @@ public class PDFSanitizeContentBleacher extends AbstractSanitizeContentBleacher 
      */
     private PDDocument getDocument(RandomAccessRead source, final ISanitizeContentCredentialAccess credentialAccess) throws SanitizeContentException {
 
-        String credentials = null;
+        String credentials = "";
         if (credentialAccess != null) {
             credentials = credentialAccess.getCredentials();
         }
@@ -146,19 +150,10 @@ public class PDFSanitizeContentBleacher extends AbstractSanitizeContentBleacher 
      */
     private PDDocument readDocument(ScratchFile inFile, RandomAccessRead source, String credentials) throws InvalidPasswordException, IOException {
         try {
-            PDFParser parser;
-            if (credentials != null) {
-                parser = new PDFParser(source, inFile);
-            } else {
-                parser = new PDFParser(source, credentials, inFile);
-            }
-
+            PDFParser parser = new PDFParser(source, credentials, inFile);
             parser.parse();
             PDDocument doc = parser.getPDDocument();
-            if (credentials != null) {
-                doc.protect(new StandardProtectionPolicy(credentials, credentials, doc.getCurrentAccessPermission()));
-            }
-
+            doc.protect(new StandardProtectionPolicy("", "", doc.getCurrentAccessPermission()));
             return doc;
         } finally {
             source.rewind((int) source.getPosition());
