@@ -238,4 +238,30 @@ public class SanitizeContentTest {
         assertNotNull(result.getThreadInformationList());
         assertTrue(result.getThreadInformationList().isEmpty());
     }
+
+
+    /**
+     * Test the PDF file usage
+     * 
+     * @throws FileNotFoundException In case the file could not be found 
+     * @throws SanitizeContentException In case of a sanitizing error
+     */
+    @Test
+    public void testPageActionTest() throws SanitizeContentException, FileNotFoundException {
+        
+        String filename = "PageActionTest.pdf";
+        SanitizeContentResult result = SanitizeContentFactory.getInstance().getSanitizeContentProcessor().sanitize(filename, 
+                new FileInputStream(Paths.get(SRC_TEST_RESOURCES,filename).toFile()),
+                new FileOutputStream(Paths.get(BUILD, filename).toFile()), 
+                null);
+        
+        assertNotNull(result);
+        assertEquals(PDFSanitizeContentBleacher.APPLICATION_PDF, result.getContentType());
+        assertTrue(result.isModifiedContent());
+        assertNotNull(result.getThreadInformationList());
+        assertEquals(1, result.getThreadInformationList().size());
+        assertEquals("DOCUMENT_CATALOG_ACTION", result.getThreadInformationList().get(0).getSection());
+        assertEquals("OpenAction", result.getThreadInformationList().get(0).getDescription());
+        assertEquals("", result.getThreadInformationList().get(0).getActionCode());
+    }
 }

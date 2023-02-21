@@ -19,7 +19,9 @@ import org.apache.pdfbox.pdmodel.interactive.action.PDActionRemoteGoTo;
 import org.apache.pdfbox.pdmodel.interactive.action.PDActionSubmitForm;
 import org.apache.pdfbox.pdmodel.interactive.action.PDActionThread;
 import org.apache.pdfbox.pdmodel.interactive.action.PDActionURI;
+import org.apache.pdfbox.pdmodel.interactive.action.PDPageAdditionalActions;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDDestination;
+import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageFitDestination;
 
 
 /**
@@ -37,6 +39,7 @@ public final class PDFContentUtil {
     private static class HOLDER {
         static final PDFContentUtil INSTANCE = new PDFContentUtil();
     }
+    
 
     /**
      * Constructor
@@ -45,6 +48,7 @@ public final class PDFContentUtil {
         // NOP
     }
 
+    
     /**
      * Get the instance
      *
@@ -68,11 +72,62 @@ public final class PDFContentUtil {
 
         if (action instanceof PDAction) {
             return convert((PDAction)action);
+        } else if (action instanceof PDPageFitDestination) {
+            return convert((PDPageFitDestination)action);
         }
 
         return "" + action;
     }
 
+    
+    /**
+     * Convert
+     *
+     * @param action the action
+     * @return the string representation
+     */
+    public String convert(PDPageFitDestination action) {
+        if (action == null || action.getPage() == null) {
+            return null;
+        }
+        
+        return convert(action.getPage().getActions());
+    }
+
+    
+    /**
+     * Convert
+     *
+     * @param action the action
+     * @return the string representation
+     */
+    public String convert(PDPageAdditionalActions action) {
+        if (action == null) {
+            return null;
+        }
+
+        String content = null;
+        if (action.getC() != null) {
+            content = convert(action.getC());
+        }
+        
+        if (action.getO() != null) {
+            if (content != null && !content.isBlank()) {
+                content += "\n\n";
+            } else {
+                content = "";
+            }
+            
+            content = content + convert(action.getO());
+        }
+        
+        if (content != null && !content.isBlank()) {
+            return content;
+        }
+        
+        return "";
+    }
+       
 
     /**
      * Convert
