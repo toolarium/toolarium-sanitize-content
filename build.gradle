@@ -14,9 +14,9 @@ dependencies {
     // see https://docs.gradle.org/current/userguide/java_library_plugin.html
 
     // utilities
-    implementation 'org.apache.pdfbox:pdfbox:2.0.24'
+    implementation 'org.apache.pdfbox:pdfbox:2.0.31'
 
     // logging
-    implementation 'org.slf4j:slf4j-api:1.7.30'
-    testRuntimeOnly 'ch.qos.logback:logback-classic:1.2.3'
+    implementation "org.slf4j:slf4j-api:${commonGradleSlf4jApiVersion}"
+    testRuntimeOnly "ch.qos.logback:logback-classic:${commonGradleLogbackVersion}"
 }
