@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/toolarium/toolarium-sanitize-content)](https://github.com/toolarium/toolarium-sanitize-content/blob/master/LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.toolarium/toolarium-sanitize-content/1.0.0)](https://search.maven.org/artifact/com.github.toolarium/toolarium-sanitize-content/1.0.0/jar)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.toolarium/toolarium-sanitize-content/1.0.1)](https://search.maven.org/artifact/com.github.toolarium/toolarium-sanitize-content/1.0.1/jar)
 [![javadoc](https://javadoc.io/badge2/com.github.toolarium/toolarium-sanitize-content/javadoc.svg)](https://javadoc.io/doc/com.github.toolarium/toolarium-sanitize-content)
 
 # toolarium-sanitize-content
@@ -20,7 +20,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ```groovy
 dependencies {
-    implementation "com.github.toolarium:toolarium-sanitize-content:1.0.0"
+    implementation "com.github.toolarium:toolarium-sanitize-content:1.0.1"
 }
 ```
 
@@ -30,7 +30,7 @@ dependencies {
 <dependency>
     <groupId>com.github.toolarium</groupId>
     <artifactId>toolarium-sanitize-content</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
