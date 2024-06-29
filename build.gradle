@@ -1,8 +1,7 @@
 /*
  * build.gradle
  *
- * Copyright by toolarium-sanitize-content, all rights reserved.
- * MIT License: https://mit-license.org
+ * Copyright by toolarium, all rights reserved.
  */
 apply from: "https://raw.githubusercontent.com/toolarium/common-gradle-build/master/gradle/common.gradle"
 
@@ -11,7 +10,6 @@ apply from: "https://raw.githubusercontent.com/toolarium/common-gradle-build/mas
  * Define project dependencies
  ****************************************************************************************/
 dependencies {
-    // see https://docs.gradle.org/current/userguide/java_library_plugin.html
 
     // utilities
     implementation 'org.apache.pdfbox:pdfbox:2.0.31'

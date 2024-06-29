@@ -2,8 +2,7 @@
 <!--
    logback.xml
    
-   Copyright by toolarium-sanitize-content, all rights reserved.
-   MIT License: https://mit-license.org
+   Copyright by toolarium, all rights reserved.
 -->
 <configuration>
   <!-- console appender -->
